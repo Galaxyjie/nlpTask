@@ -238,7 +238,7 @@ if __name__ == "__main__":
     learn_rate = 0.001
     all_epoch = 200  # the all epoch for training
     emb_size = 128  # embeding size
-    save_checkpoint_epoch = 100  # save a checkpoint per save_checkpoint_epoch epochs
+    save_checkpoint_epoch = 5  # save a checkpoint per save_checkpoint_epoch epochs
     train_path = "data/train.txt"  # the path of train dataset
 
     word2number_dict, number2word_dict = make_dict(
