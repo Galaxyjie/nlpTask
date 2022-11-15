@@ -63,18 +63,18 @@ def make_dict(train_path):
     return word2number_dict, number2word_dict
 
 
-class TextRNN(nn.Module):
+class TextLSTM(nn.Module):
     def __init__(self):
-        super(TextRNN, self).__init__()
+        super(TextLSTM, self).__init__()
         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
-        self.rnn = nn.RNN(input_size=emb_size, hidden_size=n_hidden)
+        self.lstm = nn.LSTM(input_size=emb_size, hidden_size=n_hidden)
         self.W = nn.Linear(n_hidden, n_class, bias=False)
         self.b = nn.Parameter(torch.ones([n_class]))
 
     def forward(self, X):
         X = self.C(X)
         X = X.transpose(0, 1)  # X : [n_step, batch_size, embeding size]
-        outputs, hidden = self.rnn(X)
+        outputs, hidden = self.lstm(X)
         # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
         # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
         outputs = outputs[-1]  # [batch_size, num_directions(=1) * n_hidden]
@@ -82,11 +82,11 @@ class TextRNN(nn.Module):
         return model
 
 
-class TextRNN(nn.Module):
+class TextLSTM(nn.Module):
     def __init__(self, layer_num=5):
-        super(TextRNN, self).__init__()
+        super(TextLSTM, self).__init__()
         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
-        """define the parameter of RNN"""
+        """define the parameter of LSTM"""
         """begin"""
         ##Complete this code
         self.W_xi = nn.Linear(emb_size, n_hidden, bias=False)
@@ -108,9 +108,6 @@ class TextRNN(nn.Module):
         self.sigmoid = nn.Sigmoid()
         self.tanh = nn.Tanh()
 
-        self.W = nn.Linear(n_hidden, n_class, bias=False)
-        self.b = nn.Parameter(torch.ones([n_class]))
-
         # 输出层参数
         self.W_hq = nn.Linear(n_hidden, n_class, bias=False)
         self.b_q = nn.Parameter(torch.ones([n_class]))
@@ -119,7 +116,7 @@ class TextRNN(nn.Module):
         X = self.C(X)
         X = X.transpose(0, 1)  # X : [n_step, batch_size, n_class]
         sample_size = X.size()[1]
-        """do this RNN forward"""
+        """do this LSTM forward"""
         """begin"""
         ##Complete your code with the hint: a^(t) = tanh(W_{ax}x^(t)+W_{aa}a^(t-1)+b_{a})  y^(t)=softmx(Wa^(t)+b)
         # 初始化隐藏层状态全0
@@ -138,8 +135,8 @@ class TextRNN(nn.Module):
         return model_output
 
 
-def train_rnnlm():
-    model = TextRNN()
+def train_lstmlm():
+    model = TextLSTM()
     model.to(device)
     print(model)
 
@@ -204,10 +201,10 @@ def train_rnnlm():
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
-            torch.save(model, f"models/rnnlm_model_epoch{epoch+1}.ckpt")
+            torch.save(model, f"models/lstmlm_model_epoch{epoch+1}.ckpt")
 
 
-def test_rnnlm(select_model_path):
+def test_lstmlm(select_model_path):
     model = torch.load(select_model_path, map_location="cpu")  # load the selected model
 
     # load the test data
@@ -259,9 +256,9 @@ if __name__ == "__main__":
     all_input_batch = torch.LongTensor(all_input_batch).to(device)  # list to tensor
     all_target_batch = torch.LongTensor(all_target_batch).to(device)
 
-    print("\nTrain the RNNLM……………………")
-    train_rnnlm()
+    print("\nTrain the LSTMLM……………………")
+    train_lstmlm()
 
-    # print("\nTest the RNNLM……………………")
-    # select_model_path = "models/rnnlm_model_epoch2.ckpt"
-    # test_rnnlm(select_model_path)
+    # print("\nTest the LSTMLM……………………")
+    # select_model_path = "models/lstmlm_model_epoch2.ckpt"
+    # test_lstmlm(select_model_path)
