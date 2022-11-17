@@ -4,8 +4,8 @@ import torch.nn as nn
 import torch.optim as optim
 import give_valid_test
 
-# device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+# device = torch.device("cpu")
 
 
 def make_batch(train_path, word2number_dict, batch_size, n_step):
@@ -63,26 +63,6 @@ def make_dict(train_path):
     return word2number_dict, number2word_dict
 
 
-# class TextRNN(nn.Module):
-#     def __init__(self):
-#         super(TextRNN, self).__init__()
-#         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
-#         self.rnn = nn.RNN(input_size=emb_size, hidden_size=n_hidden)
-#         self.W = nn.Linear(n_hidden, n_class, bias=False)
-#         self.b = nn.Parameter(torch.ones([n_class]))
-
-
-#     def forward(self, X):
-#         X = self.C(X)
-#         X = X.transpose(0, 1) # X : [n_step, batch_size, embeding size]
-#         outputs, hidden = self.rnn(X)
-#         # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
-#         # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
-#         outputs = outputs[-1] # [batch_size, num_directions(=1) * n_hidden]
-#         model = self.W(outputs) + self.b # model : [batch_size, n_class]
-#         return model
-
-
 class TextRNN(nn.Module):
     def __init__(self):
         super(TextRNN, self).__init__()
@@ -93,9 +73,11 @@ class TextRNN(nn.Module):
         # 第一层
         self.W_ax = nn.Linear(emb_size, n_hidden, bias=False)
         # 层层之间 [n_hidden,n_hidden]
-        self.W_aa_l = [nn.Linear(n_hidden, n_hidden, bias=False)] * (num_layer - 1)
-        self.W_aa = [nn.Linear(n_hidden, n_hidden, bias=False)] * num_layer
-        self.b_a = [nn.Parameter(torch.ones([n_hidden]))] * num_layer
+        self.W_aa_l = [nn.Linear(n_hidden, n_hidden, bias=False).to(device)] * (
+            num_layer - 1
+        )
+        self.W_aa = [nn.Linear(n_hidden, n_hidden, bias=False).to(device)] * num_layer
+        self.b_a = [nn.Parameter(torch.ones([n_hidden])).to(device)] * num_layer
         """end"""
 
         self.tanh = nn.Tanh()
@@ -111,7 +93,7 @@ class TextRNN(nn.Module):
         """begin"""
         ##Complete your code with the hint: a^(t) = tanh(W_{ax}x^(t)+W_{aa}a^(t-1)+b_{a})  y^(t)=softmx(Wa^(t)+b)
         # 初始化隐藏层状态全0
-        m_a = [torch.zeros([sample_size, n_hidden])] * num_layer
+        m_a = [torch.zeros([sample_size, n_hidden]).to(device)] * num_layer
         # 第一层
         # a^(t) = tanh(W_{ax}x^(t)+W_{aa}a^(t-1)+b_{a})
         for x in X:
@@ -125,8 +107,6 @@ class TextRNN(nn.Module):
                     + self.b_a[layer]
                 )
 
-        # model : [batch_size, n_class]
-        # y^(t)=softmx(Wa^(t)+b)
         model_output = self.W(m_a[num_layer - 1]) + self.b
         """end"""
         return model_output
@@ -175,8 +155,8 @@ def train_rnnlm():
         all_valid_batch, all_valid_target = give_valid_test.give_valid(
             word2number_dict, n_step
         )
-        all_valid_batch.to(device)
-        all_valid_target.to(device)
+        all_valid_batch = torch.LongTensor(all_valid_batch).to(device)  # list to tensor
+        all_valid_target = torch.LongTensor(all_valid_target).to(device)
 
         total_valid = len(all_valid_target) * 128
         with torch.no_grad():
@@ -198,16 +178,22 @@ def train_rnnlm():
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
-            torch.save(model, f"models/rnnlm_model_epoch{epoch+1}.ckpt")
+            torch.save(
+                model, f"models/rnnlm_{num_layer}_layers_model_epoch{epoch+1}.ckpt"
+            )
 
 
 def test_rnnlm(select_model_path):
-    model = torch.load(select_model_path, map_location="cpu")  # load the selected model
+    model = torch.load(select_model_path)  # load the selected model
+    model.to(device)
 
     # load the test data
     all_test_batch, all_test_target = give_valid_test.give_test(
         word2number_dict, n_step
     )
+    all_test_batch = torch.LongTensor(all_test_batch).to(device)  # list to tensor
+    all_test_target = torch.LongTensor(all_test_target).to(device)
+
     total_test = len(all_test_target) * 128
     model.eval()
     criterion = nn.CrossEntropyLoss()
@@ -234,9 +220,9 @@ if __name__ == "__main__":
     n_hidden = 5  # number of hidden units in one cell
     batch_size = 512  # batch size
     learn_rate = 0.001
-    all_epoch = 200  # the all epoch for training
+    all_epoch = 60  # the all epoch for training
     emb_size = 128  # embeding size
-    save_checkpoint_epoch = 100  # save a checkpoint per save_checkpoint_epoch epochs
+    save_checkpoint_epoch = 20  # save a checkpoint per save_checkpoint_epoch epochs
     train_path = "data/train.txt"  # the path of train dataset
 
     word2number_dict, number2word_dict = make_dict(
@@ -254,9 +240,9 @@ if __name__ == "__main__":
     all_input_batch = torch.LongTensor(all_input_batch).to(device)  # list to tensor
     all_target_batch = torch.LongTensor(all_target_batch).to(device)
 
-    print("\nTrain the RNNLM……………………")
-    train_rnnlm()
+    # print("\nTrain the RNNLM……………………")
+    # train_rnnlm()
 
-    # print("\nTest the RNNLM……………………")
-    # select_model_path = "models/rnnlm_model_epoch2.ckpt"
-    # test_rnnlm(select_model_path)
+    print("\nTest the RNNLM……………………")
+    select_model_path = f"models/rnnlm_{num_layer}_layers_model_epoch60.ckpt"
+    test_rnnlm(select_model_path)
