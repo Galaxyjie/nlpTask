@@ -63,21 +63,36 @@ def make_dict(train_path):
     return word2number_dict, number2word_dict
 
 
+# class TextRNN(nn.Module):
+#     def __init__(self):
+#         super(TextRNN, self).__init__()
+#         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
+#         self.rnn = nn.RNN(input_size=emb_size, hidden_size=n_hidden)
+#         self.W = nn.Linear(n_hidden, n_class, bias=False)
+#         self.b = nn.Parameter(torch.ones([n_class]))
+
+
+#     def forward(self, X):
+#         X = self.C(X)
+#         X = X.transpose(0, 1) # X : [n_step, batch_size, embeding size]
+#         outputs, hidden = self.rnn(X)
+#         # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
+#         # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
+#         outputs = outputs[-1] # [batch_size, num_directions(=1) * n_hidden]
+#         model = self.W(outputs) + self.b # model : [batch_size, n_class]
+#         return model
+
+
 class TextRNN(nn.Module):
-    def __init__(self):
+    def __init__(self, layer_num=5):
         super(TextRNN, self).__init__()
         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
         """define the parameter of RNN"""
         """begin"""
         ##Complete this code
-        # 第一层
         self.W_ax = nn.Linear(emb_size, n_hidden, bias=False)
-        # 层层之间 [n_hidden,n_hidden]
-        self.W_aa_l = [nn.Linear(n_hidden, n_hidden, bias=False).to(device)] * (
-            num_layer - 1
-        )
-        self.W_aa = [nn.Linear(n_hidden, n_hidden, bias=False).to(device)] * num_layer
-        self.b_a = [nn.Parameter(torch.ones([n_hidden])).to(device)] * num_layer
+        self.W_aa = nn.Linear(n_hidden, n_hidden, bias=False)
+        self.b_a = nn.Parameter(torch.ones([n_hidden]))
         """end"""
 
         self.tanh = nn.Tanh()
@@ -93,21 +108,10 @@ class TextRNN(nn.Module):
         """begin"""
         ##Complete your code with the hint: a^(t) = tanh(W_{ax}x^(t)+W_{aa}a^(t-1)+b_{a})  y^(t)=softmx(Wa^(t)+b)
         # 初始化隐藏层状态全0
-        m_a = [torch.zeros([sample_size, n_hidden]).to(device)] * num_layer
-        # 第一层
-        # a^(t) = tanh(W_{ax}x^(t)+W_{aa}a^(t-1)+b_{a})
+        m_a = torch.zeros([sample_size, n_hidden]).to(device)
         for x in X:
-            # 第一层
-            m_a[0] = self.tanh(self.W_ax(x) + self.W_aa[0](m_a[0]) + self.b_a[0])
-            # 后面的层 w_aa_l [n_hidden,n_hidden]
-            for layer in range(1, num_layer):
-                m_a[layer] = self.tanh(
-                    self.W_aa_l[layer - 1](m_a[layer - 1])
-                    + self.W_aa[layer](m_a[layer])
-                    + self.b_a[layer]
-                )
-
-        model_output = self.W(m_a[num_layer - 1]) + self.b
+            m_a = self.tanh(self.W_ax(x) + self.W_aa(m_a) + self.b_a)
+        model_output = self.W(m_a) + self.b
         """end"""
         return model_output
 
@@ -163,7 +167,7 @@ def train_rnnlm():
             total_loss = 0
             count_loss = 0
             for valid_batch, valid_target in zip(all_valid_batch, all_valid_target):
-                valid_output = model(valid_batch)
+                valid_output = model(valid_batch.to(device))
                 valid_loss = criterion(valid_output, valid_target)
                 total_loss += valid_loss.item()
                 count_loss += 1
@@ -178,9 +182,7 @@ def train_rnnlm():
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
-            torch.save(
-                model, f"models/rnnlm_{num_layer}_layers_model_epoch{epoch+1}.ckpt"
-            )
+            torch.save(model, f"models/1_layer_rnnlm_model_epoch{epoch+1}.ckpt")
 
 
 def test_rnnlm(select_model_path):
@@ -215,7 +217,6 @@ def test_rnnlm(select_model_path):
 
 
 if __name__ == "__main__":
-    num_layer = 3  # 层数
     n_step = 5  # number of cells(= number of Step)
     n_hidden = 5  # number of hidden units in one cell
     batch_size = 512  # batch size
@@ -244,5 +245,5 @@ if __name__ == "__main__":
     train_rnnlm()
 
     print("\nTest the RNNLM……………………")
-    select_model_path = f"models/rnnlm_{num_layer}_layers_model_epoch60.ckpt"
+    select_model_path = "models/1_layer_rnnlm_model_epoch60.ckpt"
     test_rnnlm(select_model_path)
