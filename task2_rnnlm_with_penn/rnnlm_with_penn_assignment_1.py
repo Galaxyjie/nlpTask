@@ -64,23 +64,24 @@ def make_dict(train_path):
     return word2number_dict, number2word_dict
 
 
-class TextRNN(nn.Module):
-    def __init__(self):
-        super(TextRNN, self).__init__()
-        self.C = nn.Embedding(n_class, embedding_dim=emb_size)
-        self.rnn = nn.RNN(input_size=emb_size, hidden_size=n_hidden)
-        self.W = nn.Linear(n_hidden, n_class, bias=False)
-        self.b = nn.Parameter(torch.ones([n_class]))
+# class TextRNN(nn.Module):
+#     def __init__(self):
+#         super(TextRNN, self).__init__()
+#         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
+#         self.rnn = nn.RNN(input_size=emb_size, hidden_size=n_hidden)
+#         self.W = nn.Linear(n_hidden, n_class, bias=False)
+#         self.b = nn.Parameter(torch.ones([n_class]))
 
-    def forward(self, X):
-        X = self.C(X)
-        X = X.transpose(0, 1)  # X : [n_step, batch_size, embeding size]
-        outputs, hidden = self.rnn(X)
-        # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
-        # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
-        outputs = outputs[-1]  # [batch_size, num_directions(=1) * n_hidden]
-        model = self.W(outputs) + self.b  # model : [batch_size, n_class]
-        return model
+
+#     def forward(self, X):
+#         X = self.C(X)
+#         X = X.transpose(0, 1) # X : [n_step, batch_size, embeding size]
+#         outputs, hidden = self.rnn(X)
+#         # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
+#         # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
+#         outputs = outputs[-1] # [batch_size, num_directions(=1) * n_hidden]
+#         model = self.W(outputs) + self.b # model : [batch_size, n_class]
+#         return model
 
 
 class TextRNN(nn.Module):
@@ -111,7 +112,7 @@ class TextRNN(nn.Module):
         m_a = torch.zeros([sample_size, n_hidden])
         for x in X:
             m_a = self.tanh(self.W_ax(x) + self.W_aa(m_a) + self.b_a)
-        model_output = torch.softmax(self.W(m_a) + self.b, dim=0)
+        model_output = self.W(m_a) + self.b
         '''end'''
         return model_output
 
