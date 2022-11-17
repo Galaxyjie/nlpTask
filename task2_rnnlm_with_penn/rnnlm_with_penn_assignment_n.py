@@ -240,8 +240,8 @@ if __name__ == "__main__":
     all_input_batch = torch.LongTensor(all_input_batch).to(device)  # list to tensor
     all_target_batch = torch.LongTensor(all_target_batch).to(device)
 
-    # print("\nTrain the RNNLM……………………")
-    # train_rnnlm()
+    print("\nTrain the RNNLM……………………")
+    train_rnnlm()
 
     print("\nTest the RNNLM……………………")
     select_model_path = f"models/rnnlm_{num_layer}_layers_model_epoch60.ckpt"
