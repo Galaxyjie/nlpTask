@@ -63,25 +63,6 @@ def make_dict(train_path):
     return word2number_dict, number2word_dict
 
 
-# class TextLSTM(nn.Module):
-#     def __init__(self):
-#         super(TextLSTM, self).__init__()
-#         self.C = nn.Embedding(n_class, embedding_dim=emb_size)
-#         self.lstm = nn.LSTM(input_size=emb_size, hidden_size=n_hidden)
-#         self.W = nn.Linear(n_hidden, n_class, bias=False)
-#         self.b = nn.Parameter(torch.ones([n_class]))
-
-#     def forward(self, X):
-#         X = self.C(X)
-#         X = X.transpose(0, 1)  # X : [n_step, batch_size, embeding size]
-#         outputs, hidden = self.lstm(X)
-#         # outputs : [n_step, batch_size, num_directions(=1) * n_hidden]
-#         # hidden : [num_layers(=1) * num_directions(=1), batch_size, n_hidden]
-#         outputs = outputs[-1]  # [batch_size, num_directions(=1) * n_hidden]
-#         model = self.W(outputs) + self.b  # model : [batch_size, n_class]
-#         return model
-
-
 class TextLSTM(nn.Module):
     def __init__(self, layer_num=5):
         super(TextLSTM, self).__init__()
@@ -196,7 +177,7 @@ def train_lstmlm():
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
-            torch.save(model, f"models/lstmlm_model_epoch{epoch+1}.ckpt")
+            torch.save(model, f"models/1_layer_lstmlm_model_epoch{epoch+1}.ckpt")
 
 
 def test_lstmlm(select_model_path):
@@ -231,13 +212,13 @@ def test_lstmlm(select_model_path):
 
 
 if __name__ == "__main__":
-    n_step = 4  # number of cells(= number of Step)
+    n_step = 5  # number of cells(= number of Step)
     n_hidden = 5  # number of hidden units in one cell
     batch_size = 512  # batch size
     learn_rate = 0.001
-    all_epoch = 200  # the all epoch for training
-    emb_size = 126  # embeding size
-    save_checkpoint_epoch = 5  # save a checkpoint per save_checkpoint_epoch epochs
+    all_epoch = 60  # the all epoch for training
+    emb_size = 128  # embeding size
+    save_checkpoint_epoch = 20  # save a checkpoint per save_checkpoint_epoch epochs
     train_path = "data/train.txt"  # the path of train dataset
 
     word2number_dict, number2word_dict = make_dict(
@@ -258,6 +239,6 @@ if __name__ == "__main__":
     print("\nTrain the LSTMLM……………………")
     train_lstmlm()
 
-    # print("\nTest the LSTMLM……………………")
-    # select_model_path = "models/lstmlm_model_epoch2.ckpt"
-    # test_lstmlm(select_model_path)
+    print("\nTest the LSTMLM……………………")
+    select_model_path = f"models/1_layer_lstmlm_model_epoch{all_epoch}.ckpt"
+    test_lstmlm(select_model_path)
