@@ -66,47 +66,59 @@ def make_dict(train_path):
 class TextLSTM(nn.Module):
     def __init__(self, layer_num=5):
         super(TextLSTM, self).__init__()
-        self.C = nn.Embedding(n_class, embedding_dim=emb_size)
+        self.embedding = nn.Embedding(n_class, embedding_dim=emb_size)
         """define the parameter of LSTM"""
         """begin"""
-        ##Complete this code
+        # 输入门
         self.W_xi = nn.Linear(emb_size, n_hidden, bias=False)
-        self.W_xf = nn.Linear(emb_size, n_hidden, bias=False)
-        self.W_xo = nn.Linear(emb_size, n_hidden, bias=False)
-        self.W_xc = nn.Linear(emb_size, n_hidden, bias=False)
-
         self.W_hi = nn.Linear(n_hidden, n_hidden, bias=False)
-        self.W_hf = nn.Linear(n_hidden, n_hidden, bias=False)
-        self.W_ho = nn.Linear(n_hidden, n_hidden, bias=False)
-        self.W_hc = nn.Linear(n_hidden, n_hidden, bias=False)
-
         self.b_i = nn.Parameter(torch.ones([n_hidden]))
-        self.b_f = nn.Parameter(torch.ones([n_hidden]))
-        self.b_o = nn.Parameter(torch.ones([n_hidden]))
-        self.b_c = nn.Parameter(torch.ones([n_hidden]))
-        """end"""
 
-        self.sigmoid = nn.Sigmoid()
-        self.tanh = nn.Tanh()
+        # 遗忘门
+        self.W_xf = nn.Linear(emb_size, n_hidden, bias=False)
+        self.W_hf = nn.Linear(n_hidden, n_hidden, bias=False)
+        self.b_f = nn.Parameter(torch.ones([n_hidden]))
+
+        # 输出门
+        self.W_xo = nn.Linear(emb_size, n_hidden, bias=False)
+        self.W_ho = nn.Linear(n_hidden, n_hidden, bias=False)
+        self.b_o = nn.Parameter(torch.ones([n_hidden]))
+
+        # 候选记忆
+        self.W_xc = nn.Linear(emb_size, n_hidden, bias=False)
+        self.W_hc = nn.Linear(n_hidden, n_hidden, bias=False)
+        self.b_c = nn.Parameter(torch.ones([n_hidden]))
 
         # 输出层参数
         self.W_hq = nn.Linear(n_hidden, n_class, bias=False)
         self.b_q = nn.Parameter(torch.ones([n_class]))
 
+        # 激活函数
+        self.sigmoid = nn.Sigmoid()
+        self.tanh = nn.Tanh()
+        """end"""
+
     def forward(self, X):
-        X = self.C(X)
+        X = self.embedding(X)
         X = X.transpose(0, 1)  # X : [n_step, batch_size, n_class]
         sample_size = X.size()[1]
-        # 初始化隐藏层状态全0
+        # 初始化隐状态和记忆元全0
         H = torch.zeros([sample_size, n_hidden]).to(device)
         C = torch.zeros([sample_size, n_hidden]).to(device)
         for x in X:
+            # 输入门
             I = self.sigmoid(self.W_xi(x) + self.W_hi(H) + self.b_i)
+            # 遗忘门
             F = self.sigmoid(self.W_xf(x) + self.W_hf(H) + self.b_f)
+            # 输出门
             O = self.sigmoid(self.W_xo(x) + self.W_ho(H) + self.b_o)
+            # 候选记忆元
             C_tilda = self.tanh(self.W_xc(x) + self.W_hc(H) + self.b_c)
+            # 记忆元更新
             C = F * C + I * C_tilda
-            H = O * torch.tanh(C)
+            # 隐状态更新
+            H = O * self.tanh(C)
+        # 输出
         Y = self.W_hq(H) + self.b_q
         return Y
 
