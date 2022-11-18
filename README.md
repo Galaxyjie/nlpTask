@@ -56,7 +56,7 @@ checkpoint保存在models中，格式为1_layer_lstmlm_model_epoch*.ckpt
 
 n_layers_lstmlm_with_penn_assignment(default_n=2_hidden=5).py
 
-n_layers_lstmlm_with_penn_assignment(default_n=2).py
+(pytorch_api)n_layers_lstmlm_with_penn_assignment(default_n=2).py
 
 n_layers_lstmlm_with_penn_assignment(default_n=2_hidden=0.5input).py
 
