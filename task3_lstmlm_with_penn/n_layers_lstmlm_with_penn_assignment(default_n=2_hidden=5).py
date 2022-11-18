@@ -64,11 +64,11 @@ def make_dict(train_path):
 
 
 # 获取W_x,w_h,b
-def get_three_weight(input_size, hidden_size):
+def get_three_weight(input_size, n_hidden):
     return [
-        nn.Linear(input_size, hidden_size, bias=False).to(device),
-        nn.Linear(hidden_size, hidden_size, bias=False).to(device),
-        nn.Parameter(torch.ones([hidden_size])).to(device),
+        nn.Linear(input_size, n_hidden, bias=False).to(device),
+        nn.Linear(n_hidden, n_hidden, bias=False).to(device),
+        nn.Parameter(torch.ones([n_hidden])).to(device),
     ]
 
 
@@ -81,24 +81,23 @@ class TextLSTM(nn.Module):
         # 输入门、遗忘门、输出门、候选记忆参数列表
         self.w_i = self.w_f = self.w_o = self.w_c = [None] * num_layer
 
+        # 第0层input_size = emb_size
+        input_size = emb_size
         # 按层追加参数列表
-        hidden_size = emb_size
         for layer in range(num_layer):
-            # input_size为上一层的hidden_size,第0层为emb_size
-            input_size = hidden_size
-            # 当前层的hidden_size为当前层input_size的一半
-            hidden_size = input_size // 2
             # 输入门参数
-            self.w_i[layer] = get_three_weight(input_size, hidden_size)
+            self.w_i[layer] = get_three_weight(input_size, n_hidden)
             # 遗忘门参数
-            self.w_f[layer] = get_three_weight(input_size, hidden_size)
+            self.w_f[layer] = get_three_weight(input_size, n_hidden)
             # 输出门参数
-            self.w_o[layer] = get_three_weight(input_size, hidden_size)
+            self.w_o[layer] = get_three_weight(input_size, n_hidden)
             # 候选记忆参数
-            self.w_c[layer] = get_three_weight(input_size, hidden_size)
+            self.w_c[layer] = get_three_weight(input_size, n_hidden)
+            # 下一层的input_size = n_hidden
+            input_size = n_hidden
 
         # 输出层参数
-        self.W_hq = nn.Linear(hidden_size, n_class, bias=False)
+        self.W_hq = nn.Linear(n_hidden, n_class, bias=False)
         self.b_q = nn.Parameter(torch.ones([n_class]))
 
         # 激活函数
@@ -111,12 +110,10 @@ class TextLSTM(nn.Module):
         X = X.transpose(0, 1)  # X : [n_step, batch_size, n_class]
         sample_size = X.size()[1]
         H = C = [None] * num_layer
-        hidden_size = emb_size // 2
         # 初始化隐状态和多层记忆元
         for layer in range(num_layer):
-            H[layer] = torch.zeros([sample_size, hidden_size]).to(device)
-            C[layer] = torch.zeros([sample_size, hidden_size]).to(device)
-            hidden_size = hidden_size // 2
+            H[layer] = torch.zeros([sample_size, n_hidden]).to(device)
+            C[layer] = torch.zeros([sample_size, n_hidden]).to(device)
         # 计算
         I = F = O = [None] * num_layer
         for x in X:
