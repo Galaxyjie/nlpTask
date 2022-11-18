@@ -13,248 +13,248 @@
       (tanh): Tanh()
       (W): Linear(in_features=5, out_features=7613, bias=False)
     )
-    Epoch: 0001 Batch: 50 /134 lost = 8.828547 ppl = 6826.36
-    Epoch: 0001 Batch: 100 /134 lost = 8.620298 ppl = 5543.04
-    Valid 4864 samples after epoch: 0001 lost = 8.475018 ppl = 4793.51
+    Epoch: 0001 Batch: 50 /134 lost = 8.770793 ppl = 6443.28
+    Epoch: 0001 Batch: 100 /134 lost = 8.561597 ppl = 5227.02
+    Valid 4864 samples after epoch: 0001 lost = 8.372887 ppl = 4328.12
     Saving best model
-    Epoch: 0002 Batch: 50 /134 lost = 8.206701 ppl = 3665.43
-    Epoch: 0002 Batch: 100 /134 lost = 7.972886 ppl = 2901.22
-    Valid 4864 samples after epoch: 0002 lost = 7.834972 ppl = 2527.46
+    Epoch: 0002 Batch: 50 /134 lost = 8.086017 ppl = 3248.72
+    Epoch: 0002 Batch: 100 /134 lost = 7.888824 ppl = 2667.31
+    Valid 4864 samples after epoch: 0002 lost = 7.757512 ppl = 2339.08
     Saving best model
-    Epoch: 0003 Batch: 50 /134 lost = 7.571381 ppl = 1941.82
-    Epoch: 0003 Batch: 100 /134 lost = 7.397242 ppl = 1631.48
-    Valid 4864 samples after epoch: 0003 lost = 7.338874 ppl = 1538.98
+    Epoch: 0003 Batch: 50 /134 lost = 7.493163 ppl = 1795.72
+    Epoch: 0003 Batch: 100 /134 lost = 7.362891 ppl = 1576.39
+    Valid 4864 samples after epoch: 0003 lost = 7.306516 ppl = 1489.98
     Saving best model
-    Epoch: 0004 Batch: 50 /134 lost = 7.116129 ppl = 1231.67
-    Epoch: 0004 Batch: 100 /134 lost = 6.997710 ppl = 1094.12
-    Valid 4864 samples after epoch: 0004 lost = 7.014088 ppl = 1112.19
+    Epoch: 0004 Batch: 50 /134 lost = 7.069048 ppl = 1175.03
+    Epoch: 0004 Batch: 100 /134 lost = 6.984200 ppl = 1079.44
+    Valid 4864 samples after epoch: 0004 lost = 6.996054 ppl = 1092.31
     Saving best model
-    Epoch: 0005 Batch: 50 /134 lost = 6.817903 ppl = 914.066
-    Epoch: 0005 Batch: 100 /134 lost = 6.737115 ppl = 843.125
-    Valid 4864 samples after epoch: 0005 lost = 6.817340 ppl = 913.552
+    Epoch: 0005 Batch: 50 /134 lost = 6.781522 ppl = 881.409
+    Epoch: 0005 Batch: 100 /134 lost = 6.729634 ppl = 836.841
+    Valid 4864 samples after epoch: 0005 lost = 6.802506 ppl = 900.1
     Saving best model
-    Epoch: 0006 Batch: 50 /134 lost = 6.637103 ppl = 762.881
-    Epoch: 0006 Batch: 100 /134 lost = 6.577186 ppl = 718.514
-    Valid 4864 samples after epoch: 0006 lost = 6.707323 ppl = 818.377
+    Epoch: 0006 Batch: 50 /134 lost = 6.607311 ppl = 740.489
+    Epoch: 0006 Batch: 100 /134 lost = 6.577558 ppl = 718.782
+    Valid 4864 samples after epoch: 0006 lost = 6.699119 ppl = 811.691
     Saving best model
-    Epoch: 0007 Batch: 50 /134 lost = 6.531134 ppl = 686.176
-    Epoch: 0007 Batch: 100 /134 lost = 6.482541 ppl = 653.63
-    Valid 4864 samples after epoch: 0007 lost = 6.647630 ppl = 770.955
+    Epoch: 0007 Batch: 50 /134 lost = 6.516552 ppl = 676.243
+    Epoch: 0007 Batch: 100 /134 lost = 6.499075 ppl = 664.527
+    Valid 4864 samples after epoch: 0007 lost = 6.653679 ppl = 775.633
     Saving best model
-    Epoch: 0008 Batch: 50 /134 lost = 6.465350 ppl = 642.489
-    Epoch: 0008 Batch: 100 /134 lost = 6.418269 ppl = 612.941
-    Valid 4864 samples after epoch: 0008 lost = 6.608139 ppl = 741.102
+    Epoch: 0008 Batch: 50 /134 lost = 6.475573 ppl = 649.091
+    Epoch: 0008 Batch: 100 /134 lost = 6.462999 ppl = 640.98
+    Valid 4864 samples after epoch: 0008 lost = 6.637138 ppl = 762.908
     Saving best model
-    Epoch: 0009 Batch: 50 /134 lost = 6.419223 ppl = 613.526
-    Epoch: 0009 Batch: 100 /134 lost = 6.372218 ppl = 585.355
-    Valid 4864 samples after epoch: 0009 lost = 6.583450 ppl = 723.03
+    Epoch: 0009 Batch: 50 /134 lost = 6.457710 ppl = 637.599
+    Epoch: 0009 Batch: 100 /134 lost = 6.443057 ppl = 628.325
+    Valid 4864 samples after epoch: 0009 lost = 6.626290 ppl = 754.677
     Saving best model
-    Epoch: 0010 Batch: 50 /134 lost = 6.386536 ppl = 593.796
-    Epoch: 0010 Batch: 100 /134 lost = 6.332651 ppl = 562.646
-    Valid 4864 samples after epoch: 0010 lost = 6.563710 ppl = 708.897
+    Epoch: 0010 Batch: 50 /134 lost = 6.446610 ppl = 630.561
+    Epoch: 0010 Batch: 100 /134 lost = 6.432212 ppl = 621.548
+    Valid 4864 samples after epoch: 0010 lost = 6.623178 ppl = 752.332
     Saving best model
-    Epoch: 0011 Batch: 50 /134 lost = 6.361369 ppl = 579.038
-    Epoch: 0011 Batch: 100 /134 lost = 6.303811 ppl = 546.651
-    Valid 4864 samples after epoch: 0011 lost = 6.546490 ppl = 696.794
+    Epoch: 0011 Batch: 50 /134 lost = 6.438458 ppl = 625.442
+    Epoch: 0011 Batch: 100 /134 lost = 6.420478 ppl = 614.297
+    Valid 4864 samples after epoch: 0011 lost = 6.618684 ppl = 748.959
     Saving best model
-    Epoch: 0012 Batch: 50 /134 lost = 6.337354 ppl = 565.299
-    Epoch: 0012 Batch: 100 /134 lost = 6.282200 ppl = 534.964
-    Valid 4864 samples after epoch: 0012 lost = 6.533525 ppl = 687.819
+    Epoch: 0012 Batch: 50 /134 lost = 6.424472 ppl = 616.755
+    Epoch: 0012 Batch: 100 /134 lost = 6.401260 ppl = 602.604
+    Valid 4864 samples after epoch: 0012 lost = 6.607340 ppl = 740.511
     Saving best model
-    Epoch: 0013 Batch: 50 /134 lost = 6.318511 ppl = 554.747
-    Epoch: 0013 Batch: 100 /134 lost = 6.254858 ppl = 520.535
-    Valid 4864 samples after epoch: 0013 lost = 6.522715 ppl = 680.423
+    Epoch: 0013 Batch: 50 /134 lost = 6.407441 ppl = 606.34
+    Epoch: 0013 Batch: 100 /134 lost = 6.380885 ppl = 590.45
+    Valid 4864 samples after epoch: 0013 lost = 6.601230 ppl = 736.0
     Saving best model
-    Epoch: 0014 Batch: 50 /134 lost = 6.298895 ppl = 543.971
-    Epoch: 0014 Batch: 100 /134 lost = 6.228705 ppl = 507.099
-    Valid 4864 samples after epoch: 0014 lost = 6.513601 ppl = 674.25
+    Epoch: 0014 Batch: 50 /134 lost = 6.389877 ppl = 595.783
+    Epoch: 0014 Batch: 100 /134 lost = 6.366470 ppl = 582.0
+    Valid 4864 samples after epoch: 0014 lost = 6.593928 ppl = 730.645
     Saving best model
-    Epoch: 0015 Batch: 50 /134 lost = 6.279442 ppl = 533.491
-    Epoch: 0015 Batch: 100 /134 lost = 6.206190 ppl = 495.808
-    Valid 4864 samples after epoch: 0015 lost = 6.504941 ppl = 668.436
+    Epoch: 0015 Batch: 50 /134 lost = 6.372251 ppl = 585.374
+    Epoch: 0015 Batch: 100 /134 lost = 6.349784 ppl = 572.369
+    Valid 4864 samples after epoch: 0015 lost = 6.586628 ppl = 725.331
     Saving best model
-    Epoch: 0016 Batch: 50 /134 lost = 6.257855 ppl = 522.098
-    Epoch: 0016 Batch: 100 /134 lost = 6.182185 ppl = 484.049
-    Valid 4864 samples after epoch: 0016 lost = 6.495266 ppl = 662.0
+    Epoch: 0016 Batch: 50 /134 lost = 6.352564 ppl = 573.962
+    Epoch: 0016 Batch: 100 /134 lost = 6.334500 ppl = 563.687
+    Valid 4864 samples after epoch: 0016 lost = 6.578950 ppl = 719.783
     Saving best model
-    Epoch: 0017 Batch: 50 /134 lost = 6.234365 ppl = 509.977
-    Epoch: 0017 Batch: 100 /134 lost = 6.158048 ppl = 472.505
-    Valid 4864 samples after epoch: 0017 lost = 6.485704 ppl = 655.701
+    Epoch: 0017 Batch: 50 /134 lost = 6.332828 ppl = 562.746
+    Epoch: 0017 Batch: 100 /134 lost = 6.317489 ppl = 554.18
+    Valid 4864 samples after epoch: 0017 lost = 6.571645 ppl = 714.544
     Saving best model
-    Epoch: 0018 Batch: 50 /134 lost = 6.211925 ppl = 498.66
-    Epoch: 0018 Batch: 100 /134 lost = 6.137548 ppl = 462.917
-    Valid 4864 samples after epoch: 0018 lost = 6.476875 ppl = 649.937
+    Epoch: 0018 Batch: 50 /134 lost = 6.313169 ppl = 551.791
+    Epoch: 0018 Batch: 100 /134 lost = 6.292450 ppl = 540.476
+    Valid 4864 samples after epoch: 0018 lost = 6.563096 ppl = 708.462
     Saving best model
-    Epoch: 0019 Batch: 50 /134 lost = 6.190399 ppl = 488.041
-    Epoch: 0019 Batch: 100 /134 lost = 6.118356 ppl = 454.118
-    Valid 4864 samples after epoch: 0019 lost = 6.468736 ppl = 644.668
+    Epoch: 0019 Batch: 50 /134 lost = 6.294964 ppl = 541.837
+    Epoch: 0019 Batch: 100 /134 lost = 6.273080 ppl = 530.108
+    Valid 4864 samples after epoch: 0019 lost = 6.556206 ppl = 703.597
     Saving best model
-    Epoch: 0020 Batch: 50 /134 lost = 6.173689 ppl = 479.954
-    Epoch: 0020 Batch: 100 /134 lost = 6.101280 ppl = 446.429
-    Valid 4864 samples after epoch: 0020 lost = 6.460623 ppl = 639.459
+    Epoch: 0020 Batch: 50 /134 lost = 6.277239 ppl = 532.317
+    Epoch: 0020 Batch: 100 /134 lost = 6.253585 ppl = 519.873
+    Valid 4864 samples after epoch: 0020 lost = 6.545735 ppl = 696.268
     Saving best model
-    Epoch: 0021 Batch: 50 /134 lost = 6.157946 ppl = 472.457
-    Epoch: 0021 Batch: 100 /134 lost = 6.083850 ppl = 438.715
-    Valid 4864 samples after epoch: 0021 lost = 6.453252 ppl = 634.763
+    Epoch: 0021 Batch: 50 /134 lost = 6.253945 ppl = 520.06
+    Epoch: 0021 Batch: 100 /134 lost = 6.234339 ppl = 509.963
+    Valid 4864 samples after epoch: 0021 lost = 6.538597 ppl = 691.316
     Saving best model
-    Epoch: 0022 Batch: 50 /134 lost = 6.141352 ppl = 464.681
-    Epoch: 0022 Batch: 100 /134 lost = 6.067672 ppl = 431.674
-    Valid 4864 samples after epoch: 0022 lost = 6.446609 ppl = 630.56
+    Epoch: 0022 Batch: 50 /134 lost = 6.236287 ppl = 510.958
+    Epoch: 0022 Batch: 100 /134 lost = 6.215533 ppl = 500.463
+    Valid 4864 samples after epoch: 0022 lost = 6.531371 ppl = 686.338
     Saving best model
-    Epoch: 0023 Batch: 50 /134 lost = 6.124587 ppl = 456.956
-    Epoch: 0023 Batch: 100 /134 lost = 6.052974 ppl = 425.376
-    Valid 4864 samples after epoch: 0023 lost = 6.439329 ppl = 625.987
+    Epoch: 0023 Batch: 50 /134 lost = 6.219816 ppl = 502.611
+    Epoch: 0023 Batch: 100 /134 lost = 6.196913 ppl = 491.23
+    Valid 4864 samples after epoch: 0023 lost = 6.524163 ppl = 681.409
     Saving best model
-    Epoch: 0024 Batch: 50 /134 lost = 6.110154 ppl = 450.408
-    Epoch: 0024 Batch: 100 /134 lost = 6.038228 ppl = 419.15
-    Valid 4864 samples after epoch: 0024 lost = 6.433625 ppl = 622.426
+    Epoch: 0024 Batch: 50 /134 lost = 6.202456 ppl = 493.961
+    Epoch: 0024 Batch: 100 /134 lost = 6.177282 ppl = 481.681
+    Valid 4864 samples after epoch: 0024 lost = 6.517388 ppl = 676.808
     Saving best model
-    Epoch: 0025 Batch: 50 /134 lost = 6.097142 ppl = 444.585
-    Epoch: 0025 Batch: 100 /134 lost = 6.023822 ppl = 413.155
-    Valid 4864 samples after epoch: 0025 lost = 6.429106 ppl = 619.62
+    Epoch: 0025 Batch: 50 /134 lost = 6.185370 ppl = 485.593
+    Epoch: 0025 Batch: 100 /134 lost = 6.156902 ppl = 471.964
+    Valid 4864 samples after epoch: 0025 lost = 6.509671 ppl = 671.605
     Saving best model
-    Epoch: 0026 Batch: 50 /134 lost = 6.085153 ppl = 439.287
-    Epoch: 0026 Batch: 100 /134 lost = 6.008904 ppl = 407.037
-    Valid 4864 samples after epoch: 0026 lost = 6.424444 ppl = 616.738
+    Epoch: 0026 Batch: 50 /134 lost = 6.166934 ppl = 476.722
+    Epoch: 0026 Batch: 100 /134 lost = 6.134532 ppl = 461.523
+    Valid 4864 samples after epoch: 0026 lost = 6.501756 ppl = 666.311
     Saving best model
-    Epoch: 0027 Batch: 50 /134 lost = 6.074033 ppl = 434.429
-    Epoch: 0027 Batch: 100 /134 lost = 5.993049 ppl = 400.634
-    Valid 4864 samples after epoch: 0027 lost = 6.420992 ppl = 614.613
+    Epoch: 0027 Batch: 50 /134 lost = 6.152033 ppl = 469.671
+    Epoch: 0027 Batch: 100 /134 lost = 6.113041 ppl = 451.71
+    Valid 4864 samples after epoch: 0027 lost = 6.494234 ppl = 661.318
     Saving best model
-    Epoch: 0028 Batch: 50 /134 lost = 6.061695 ppl = 429.102
-    Epoch: 0028 Batch: 100 /134 lost = 5.973692 ppl = 392.954
-    Valid 4864 samples after epoch: 0028 lost = 6.416902 ppl = 612.104
+    Epoch: 0028 Batch: 50 /134 lost = 6.137086 ppl = 462.703
+    Epoch: 0028 Batch: 100 /134 lost = 6.092947 ppl = 442.724
+    Valid 4864 samples after epoch: 0028 lost = 6.488594 ppl = 657.598
     Saving best model
-    Epoch: 0029 Batch: 50 /134 lost = 6.050913 ppl = 424.501
-    Epoch: 0029 Batch: 100 /134 lost = 5.958521 ppl = 387.037
-    Valid 4864 samples after epoch: 0029 lost = 6.413756 ppl = 610.181
+    Epoch: 0029 Batch: 50 /134 lost = 6.124274 ppl = 456.813
+    Epoch: 0029 Batch: 100 /134 lost = 6.073693 ppl = 434.282
+    Valid 4864 samples after epoch: 0029 lost = 6.481085 ppl = 652.679
     Saving best model
-    Epoch: 0030 Batch: 50 /134 lost = 6.038111 ppl = 419.1
-    Epoch: 0030 Batch: 100 /134 lost = 5.943460 ppl = 381.252
-    Valid 4864 samples after epoch: 0030 lost = 6.412888 ppl = 609.652
+    Epoch: 0030 Batch: 50 /134 lost = 6.111003 ppl = 450.791
+    Epoch: 0030 Batch: 100 /134 lost = 6.054439 ppl = 426.0
+    Valid 4864 samples after epoch: 0030 lost = 6.475716 ppl = 649.184
     Saving best model
-    Epoch: 0031 Batch: 50 /134 lost = 6.028360 ppl = 415.034
-    Epoch: 0031 Batch: 100 /134 lost = 5.929807 ppl = 376.082
-    Valid 4864 samples after epoch: 0031 lost = 6.411748 ppl = 608.957
+    Epoch: 0031 Batch: 50 /134 lost = 6.098607 ppl = 445.237
+    Epoch: 0031 Batch: 100 /134 lost = 6.037934 ppl = 419.027
+    Valid 4864 samples after epoch: 0031 lost = 6.471529 ppl = 646.471
     Saving best model
-    Epoch: 0032 Batch: 50 /134 lost = 6.018884 ppl = 411.119
-    Epoch: 0032 Batch: 100 /134 lost = 5.916839 ppl = 371.236
-    Valid 4864 samples after epoch: 0032 lost = 6.410852 ppl = 608.412
+    Epoch: 0032 Batch: 50 /134 lost = 6.085277 ppl = 439.341
+    Epoch: 0032 Batch: 100 /134 lost = 6.018664 ppl = 411.029
+    Valid 4864 samples after epoch: 0032 lost = 6.466325 ppl = 643.116
     Saving best model
-    Epoch: 0033 Batch: 50 /134 lost = 6.008741 ppl = 406.971
-    Epoch: 0033 Batch: 100 /134 lost = 5.903532 ppl = 366.329
-    Valid 4864 samples after epoch: 0033 lost = 6.409265 ppl = 607.447
+    Epoch: 0033 Batch: 50 /134 lost = 6.071483 ppl = 433.323
+    Epoch: 0033 Batch: 100 /134 lost = 6.003676 ppl = 404.915
+    Valid 4864 samples after epoch: 0033 lost = 6.461208 ppl = 639.834
     Saving best model
-    Epoch: 0034 Batch: 50 /134 lost = 5.997005 ppl = 402.222
-    Epoch: 0034 Batch: 100 /134 lost = 5.890610 ppl = 361.626
-    Valid 4864 samples after epoch: 0034 lost = 6.407321 ppl = 606.267
+    Epoch: 0034 Batch: 50 /134 lost = 6.059709 ppl = 428.251
+    Epoch: 0034 Batch: 100 /134 lost = 5.983340 ppl = 396.763
+    Valid 4864 samples after epoch: 0034 lost = 6.454667 ppl = 635.662
     Saving best model
-    Epoch: 0035 Batch: 50 /134 lost = 5.987088 ppl = 398.253
-    Epoch: 0035 Batch: 100 /134 lost = 5.878755 ppl = 357.364
-    Valid 4864 samples after epoch: 0035 lost = 6.405745 ppl = 605.312
+    Epoch: 0035 Batch: 50 /134 lost = 6.043020 ppl = 421.163
+    Epoch: 0035 Batch: 100 /134 lost = 5.965352 ppl = 389.69
+    Valid 4864 samples after epoch: 0035 lost = 6.450855 ppl = 633.243
     Saving best model
-    Epoch: 0036 Batch: 50 /134 lost = 5.977859 ppl = 394.595
-    Epoch: 0036 Batch: 100 /134 lost = 5.865984 ppl = 352.829
-    Valid 4864 samples after epoch: 0036 lost = 6.404194 ppl = 604.375
+    Epoch: 0036 Batch: 50 /134 lost = 6.026217 ppl = 414.146
+    Epoch: 0036 Batch: 100 /134 lost = 5.949403 ppl = 383.524
+    Valid 4864 samples after epoch: 0036 lost = 6.446988 ppl = 630.8
     Saving best model
-    Epoch: 0037 Batch: 50 /134 lost = 5.969205 ppl = 391.195
-    Epoch: 0037 Batch: 100 /134 lost = 5.854802 ppl = 348.906
-    Valid 4864 samples after epoch: 0037 lost = 6.402370 ppl = 603.273
+    Epoch: 0037 Batch: 50 /134 lost = 6.011363 ppl = 408.039
+    Epoch: 0037 Batch: 100 /134 lost = 5.934320 ppl = 377.783
+    Valid 4864 samples after epoch: 0037 lost = 6.442561 ppl = 628.013
     Saving best model
-    Epoch: 0038 Batch: 50 /134 lost = 5.960011 ppl = 387.615
-    Epoch: 0038 Batch: 100 /134 lost = 5.842927 ppl = 344.787
-    Valid 4864 samples after epoch: 0038 lost = 6.401077 ppl = 602.494
+    Epoch: 0038 Batch: 50 /134 lost = 5.997071 ppl = 402.249
+    Epoch: 0038 Batch: 100 /134 lost = 5.920073 ppl = 372.439
+    Valid 4864 samples after epoch: 0038 lost = 6.438325 ppl = 625.359
     Saving best model
-    Epoch: 0039 Batch: 50 /134 lost = 5.950181 ppl = 383.823
-    Epoch: 0039 Batch: 100 /134 lost = 5.830447 ppl = 340.511
-    Valid 4864 samples after epoch: 0039 lost = 6.399262 ppl = 601.401
+    Epoch: 0039 Batch: 50 /134 lost = 5.983297 ppl = 396.746
+    Epoch: 0039 Batch: 100 /134 lost = 5.906170 ppl = 367.297
+    Valid 4864 samples after epoch: 0039 lost = 6.434287 ppl = 622.838
     Saving best model
-    Epoch: 0040 Batch: 50 /134 lost = 5.941453 ppl = 380.488
-    Epoch: 0040 Batch: 100 /134 lost = 5.817968 ppl = 336.288
-    Valid 4864 samples after epoch: 0040 lost = 6.396554 ppl = 599.774
+    Epoch: 0040 Batch: 50 /134 lost = 5.970162 ppl = 391.569
+    Epoch: 0040 Batch: 100 /134 lost = 5.892750 ppl = 362.401
+    Valid 4864 samples after epoch: 0040 lost = 6.430565 ppl = 620.524
     Saving best model
-    Epoch: 0041 Batch: 50 /134 lost = 5.933867 ppl = 377.612
-    Epoch: 0041 Batch: 100 /134 lost = 5.806744 ppl = 332.535
-    Valid 4864 samples after epoch: 0041 lost = 6.394467 ppl = 598.524
+    Epoch: 0041 Batch: 50 /134 lost = 5.956279 ppl = 386.171
+    Epoch: 0041 Batch: 100 /134 lost = 5.877945 ppl = 357.075
+    Valid 4864 samples after epoch: 0041 lost = 6.426337 ppl = 617.906
     Saving best model
-    Epoch: 0042 Batch: 50 /134 lost = 5.925776 ppl = 374.569
-    Epoch: 0042 Batch: 100 /134 lost = 5.795638 ppl = 328.862
-    Valid 4864 samples after epoch: 0042 lost = 6.393652 ppl = 598.037
+    Epoch: 0042 Batch: 50 /134 lost = 5.943121 ppl = 381.123
+    Epoch: 0042 Batch: 100 /134 lost = 5.864865 ppl = 352.435
+    Valid 4864 samples after epoch: 0042 lost = 6.422388 ppl = 615.471
     Saving best model
-    Epoch: 0043 Batch: 50 /134 lost = 5.917878 ppl = 371.622
-    Epoch: 0043 Batch: 100 /134 lost = 5.785364 ppl = 325.501
-    Valid 4864 samples after epoch: 0043 lost = 6.393250 ppl = 597.796
+    Epoch: 0043 Batch: 50 /134 lost = 5.928915 ppl = 375.746
+    Epoch: 0043 Batch: 100 /134 lost = 5.850887 ppl = 347.543
+    Valid 4864 samples after epoch: 0043 lost = 6.419045 ppl = 613.417
     Saving best model
-    Epoch: 0044 Batch: 50 /134 lost = 5.910451 ppl = 368.872
-    Epoch: 0044 Batch: 100 /134 lost = 5.775240 ppl = 322.222
-    Valid 4864 samples after epoch: 0044 lost = 6.393069 ppl = 597.688
+    Epoch: 0044 Batch: 50 /134 lost = 5.915370 ppl = 370.692
+    Epoch: 0044 Batch: 100 /134 lost = 5.837161 ppl = 342.805
+    Valid 4864 samples after epoch: 0044 lost = 6.414581 ppl = 610.685
     Saving best model
-    Epoch: 0045 Batch: 50 /134 lost = 5.903023 ppl = 366.143
-    Epoch: 0045 Batch: 100 /134 lost = 5.765365 ppl = 319.056
-    Valid 4864 samples after epoch: 0045 lost = 6.392904 ppl = 597.589
+    Epoch: 0045 Batch: 50 /134 lost = 5.901915 ppl = 365.737
+    Epoch: 0045 Batch: 100 /134 lost = 5.824375 ppl = 338.45
+    Valid 4864 samples after epoch: 0045 lost = 6.411085 ppl = 608.554
     Saving best model
-    Epoch: 0046 Batch: 50 /134 lost = 5.895513 ppl = 363.403
-    Epoch: 0046 Batch: 100 /134 lost = 5.755445 ppl = 315.906
-    Valid 4864 samples after epoch: 0046 lost = 6.392969 ppl = 597.629
+    Epoch: 0046 Batch: 50 /134 lost = 5.889960 ppl = 361.391
+    Epoch: 0046 Batch: 100 /134 lost = 5.812039 ppl = 334.3
+    Valid 4864 samples after epoch: 0046 lost = 6.407852 ppl = 606.589
     Saving best model
-    Epoch: 0047 Batch: 50 /134 lost = 5.888353 ppl = 360.81
-    Epoch: 0047 Batch: 100 /134 lost = 5.746165 ppl = 312.988
-    Valid 4864 samples after epoch: 0047 lost = 6.393300 ppl = 597.826
+    Epoch: 0047 Batch: 50 /134 lost = 5.878444 ppl = 357.253
+    Epoch: 0047 Batch: 100 /134 lost = 5.798316 ppl = 329.744
+    Valid 4864 samples after epoch: 0047 lost = 6.404383 ppl = 604.489
     Saving best model
-    Epoch: 0048 Batch: 50 /134 lost = 5.881489 ppl = 358.342
-    Epoch: 0048 Batch: 100 /134 lost = 5.737065 ppl = 310.153
-    Valid 4864 samples after epoch: 0048 lost = 6.393300 ppl = 597.826
+    Epoch: 0048 Batch: 50 /134 lost = 5.865512 ppl = 352.663
+    Epoch: 0048 Batch: 100 /134 lost = 5.785517 ppl = 325.55
+    Valid 4864 samples after epoch: 0048 lost = 6.400980 ppl = 602.435
     Saving best model
-    Epoch: 0049 Batch: 50 /134 lost = 5.874820 ppl = 355.961
-    Epoch: 0049 Batch: 100 /134 lost = 5.728673 ppl = 307.561
-    Valid 4864 samples after epoch: 0049 lost = 6.393372 ppl = 597.869
+    Epoch: 0049 Batch: 50 /134 lost = 5.854443 ppl = 348.78
+    Epoch: 0049 Batch: 100 /134 lost = 5.774087 ppl = 321.85
+    Valid 4864 samples after epoch: 0049 lost = 6.399302 ppl = 601.425
     Saving best model
-    Epoch: 0050 Batch: 50 /134 lost = 5.868149 ppl = 353.594
-    Epoch: 0050 Batch: 100 /134 lost = 5.720470 ppl = 305.048
-    Valid 4864 samples after epoch: 0050 lost = 6.393535 ppl = 597.967
+    Epoch: 0050 Batch: 50 /134 lost = 5.842885 ppl = 344.773
+    Epoch: 0050 Batch: 100 /134 lost = 5.763921 ppl = 318.595
+    Valid 4864 samples after epoch: 0050 lost = 6.398500 ppl = 600.943
     Saving best model
-    Epoch: 0051 Batch: 50 /134 lost = 5.861605 ppl = 351.287
-    Epoch: 0051 Batch: 100 /134 lost = 5.712708 ppl = 302.69
-    Valid 4864 samples after epoch: 0051 lost = 6.393709 ppl = 598.071
+    Epoch: 0051 Batch: 50 /134 lost = 5.833116 ppl = 341.421
+    Epoch: 0051 Batch: 100 /134 lost = 5.754312 ppl = 315.548
+    Valid 4864 samples after epoch: 0051 lost = 6.397336 ppl = 600.244
     Saving best model
-    Epoch: 0052 Batch: 50 /134 lost = 5.854908 ppl = 348.943
-    Epoch: 0052 Batch: 100 /134 lost = 5.704972 ppl = 300.357
-    Valid 4864 samples after epoch: 0052 lost = 6.393973 ppl = 598.229
+    Epoch: 0052 Batch: 50 /134 lost = 5.822306 ppl = 337.75
+    Epoch: 0052 Batch: 100 /134 lost = 5.744219 ppl = 312.38
+    Valid 4864 samples after epoch: 0052 lost = 6.395475 ppl = 599.128
     Saving best model
-    Epoch: 0053 Batch: 50 /134 lost = 5.848343 ppl = 346.659
-    Epoch: 0053 Batch: 100 /134 lost = 5.697444 ppl = 298.105
-    Valid 4864 samples after epoch: 0053 lost = 6.394167 ppl = 598.345
+    Epoch: 0053 Batch: 50 /134 lost = 5.812698 ppl = 334.52
+    Epoch: 0053 Batch: 100 /134 lost = 5.734116 ppl = 309.239
+    Valid 4864 samples after epoch: 0053 lost = 6.393117 ppl = 597.717
     Saving best model
-    Epoch: 0054 Batch: 50 /134 lost = 5.841337 ppl = 344.239
-    Epoch: 0054 Batch: 100 /134 lost = 5.690028 ppl = 295.902
-    Valid 4864 samples after epoch: 0054 lost = 6.394450 ppl = 598.514
+    Epoch: 0054 Batch: 50 /134 lost = 5.803108 ppl = 331.328
+    Epoch: 0054 Batch: 100 /134 lost = 5.725191 ppl = 306.492
+    Valid 4864 samples after epoch: 0054 lost = 6.392687 ppl = 597.46
     Saving best model
-    Epoch: 0055 Batch: 50 /134 lost = 5.834790 ppl = 341.993
-    Epoch: 0055 Batch: 100 /134 lost = 5.682937 ppl = 293.811
-    Valid 4864 samples after epoch: 0055 lost = 6.394761 ppl = 598.7
+    Epoch: 0055 Batch: 50 /134 lost = 5.793920 ppl = 328.297
+    Epoch: 0055 Batch: 100 /134 lost = 5.717430 ppl = 304.122
+    Valid 4864 samples after epoch: 0055 lost = 6.392482 ppl = 597.337
     Saving best model
-    Epoch: 0056 Batch: 50 /134 lost = 5.828619 ppl = 339.889
-    Epoch: 0056 Batch: 100 /134 lost = 5.675129 ppl = 291.526
-    Valid 4864 samples after epoch: 0056 lost = 6.395071 ppl = 598.886
+    Epoch: 0056 Batch: 50 /134 lost = 5.784971 ppl = 325.373
+    Epoch: 0056 Batch: 100 /134 lost = 5.710590 ppl = 302.049
+    Valid 4864 samples after epoch: 0056 lost = 6.391772 ppl = 596.913
     Saving best model
-    Epoch: 0057 Batch: 50 /134 lost = 5.822982 ppl = 337.979
-    Epoch: 0057 Batch: 100 /134 lost = 5.667756 ppl = 289.384
-    Valid 4864 samples after epoch: 0057 lost = 6.395251 ppl = 598.994
+    Epoch: 0057 Batch: 50 /134 lost = 5.775783 ppl = 322.397
+    Epoch: 0057 Batch: 100 /134 lost = 5.703177 ppl = 299.818
+    Valid 4864 samples after epoch: 0057 lost = 6.391376 ppl = 596.677
     Saving best model
-    Epoch: 0058 Batch: 50 /134 lost = 5.817715 ppl = 336.203
-    Epoch: 0058 Batch: 100 /134 lost = 5.659528 ppl = 287.013
-    Valid 4864 samples after epoch: 0058 lost = 6.395913 ppl = 599.39
+    Epoch: 0058 Batch: 50 /134 lost = 5.767227 ppl = 319.65
+    Epoch: 0058 Batch: 100 /134 lost = 5.695836 ppl = 297.625
+    Valid 4864 samples after epoch: 0058 lost = 6.390845 ppl = 596.36
     Saving best model
-    Epoch: 0059 Batch: 50 /134 lost = 5.813040 ppl = 334.635
-    Epoch: 0059 Batch: 100 /134 lost = 5.652571 ppl = 285.023
-    Valid 4864 samples after epoch: 0059 lost = 6.396841 ppl = 599.947
+    Epoch: 0059 Batch: 50 /134 lost = 5.758789 ppl = 316.964
+    Epoch: 0059 Batch: 100 /134 lost = 5.688883 ppl = 295.563
+    Valid 4864 samples after epoch: 0059 lost = 6.390691 ppl = 596.269
     Saving best model
-    Epoch: 0060 Batch: 50 /134 lost = 5.808358 ppl = 333.072
-    Epoch: 0060 Batch: 100 /134 lost = 5.645984 ppl = 283.152
-    Valid 4864 samples after epoch: 0060 lost = 6.397878 ppl = 600.569
+    Epoch: 0060 Batch: 50 /134 lost = 5.750678 ppl = 314.404
+    Epoch: 0060 Batch: 100 /134 lost = 5.680879 ppl = 293.207
+    Valid 4864 samples after epoch: 0060 lost = 6.390280 ppl = 596.023
     Saving best model
     
     Test the RNNLM……………………
     Test 5760 samples with models/1_layer_rnnlm_model_best.ckpt……………………
-    lost = 6.319994 ppl = 555.57
+    lost = 6.299852 ppl = 544.491
     
