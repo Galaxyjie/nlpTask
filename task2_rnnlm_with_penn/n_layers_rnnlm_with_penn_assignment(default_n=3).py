@@ -121,6 +121,7 @@ def train_rnnlm():
     optimizer = optim.Adam(model.parameters(), lr=learn_rate)
 
     # Training
+    best_loss = 100
     batch_number = len(all_input_batch)
     for epoch in range(all_epoch):
         count_batch = 0
@@ -176,6 +177,9 @@ def train_rnnlm():
                 "ppl =",
                 "{:.6}".format(math.exp(total_loss / count_loss)),
             )
+        if total_loss / count_loss < best_loss:
+            print("Saving best model")
+            torch.save(model, f"models/{num_layer}_layers_rnnlm_model_best.ckpt")
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
             torch.save(
@@ -244,5 +248,5 @@ if __name__ == "__main__":
     train_rnnlm()
 
     print("\nTest the RNNLM……………………")
-    select_model_path = f"models/{num_layer}_layers_rnnlm_model_epoch60.ckpt"
+    select_model_path = f"models/{num_layer}_layers_rnnlm_model_best.ckpt"
     test_rnnlm(select_model_path)

@@ -164,6 +164,7 @@ def train_lstmlm():
     optimizer = optim.Adam(model.parameters(), lr=learn_rate)
 
     # Training
+    best_loss = 100
     batch_number = len(all_input_batch)
     for epoch in range(all_epoch):
         count_batch = 0
@@ -218,6 +219,11 @@ def train_lstmlm():
                 "{:.6f}".format(total_loss / count_loss),
                 "ppl =",
                 "{:.6}".format(math.exp(total_loss / count_loss)),
+            )
+        if total_loss / count_loss < best_loss:
+            print("Saving best model")
+            torch.save(
+                model, f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt",
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
@@ -289,6 +295,6 @@ if __name__ == "__main__":
 
     print("\nTest the LSTMLM……………………")
     select_model_path = (
-        f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_epoch{all_epoch}.ckpt"
+        f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt"
     )
     test_lstmlm(select_model_path)
