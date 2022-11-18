@@ -182,6 +182,7 @@ def train_rnnlm():
                 "{:.6}".format(math.exp(total_loss / count_loss)),
             )
         if total_loss / count_loss < best_loss:
+            best_loss = total_loss / count_loss
             print("Saving best model")
             torch.save(model, f"models/1_layer_rnnlm_model_best.ckpt")
 

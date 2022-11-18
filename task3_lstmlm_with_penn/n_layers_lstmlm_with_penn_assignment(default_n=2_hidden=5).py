@@ -221,6 +221,7 @@ def train_lstmlm():
                 "{:.6}".format(math.exp(total_loss / count_loss)),
             )
         if total_loss / count_loss < best_loss:
+            best_loss = total_loss / count_loss
             print("Saving best model")
             torch.save(
                 model, f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt",
@@ -294,7 +295,5 @@ if __name__ == "__main__":
     train_lstmlm()
 
     print("\nTest the LSTMLM……………………")
-    select_model_path = (
-        f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt"
-    )
+    select_model_path = f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt"
     test_lstmlm(select_model_path)
