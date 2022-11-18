@@ -20,11 +20,11 @@ checkpoint保存在models中，格式为1_layer_rnnlm_model_epoch*.ckpt
 
 利用nn.Linear、nn.Parameter实现了一个自定义层数的DRNN，默认为3
 
-1_layer_rnnlm_with_penn_assignment.py为code
+n_layers_rnnlm_with_penn_assignment(default_n=3).py为code
 
-1_layer_rnnlm_train_and_test_process.ipynb利用jupyter记录训练及测试过程，共60epoch，每20个epoch生成一个checkpoint
+n_layers_rnnlm_train_and_test_process(default_n=3).ipynb利用jupyter记录训练及测试过程，共60epoch，每20个epoch生成一个checkpoint
 
-1_layer_rnnlm_train_and_test_process.mb转jupyter训练及测试过程为markdown版
+n_layers_rnnlm_train_and_test_process(default_n=3).mb转jupyter训练及测试过程为markdown版
 
 checkpoint保存在models中，格式为3_layers_rnnlm_model_epoch*.ckpt
 
