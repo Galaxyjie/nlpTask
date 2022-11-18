@@ -224,7 +224,7 @@ def train_lstmlm():
             )
 
         if (epoch + 1) % save_checkpoint_epoch == 0:
-            torch.save(model, f"models/{num_layer}_layers_lstmlm_model{epoch+1}.ckpt")
+            torch.save(model, f"models/{num_layer}_layers_lstmlm_model_epoch{epoch+1}.ckpt")
 
 
 def test_lstmlm(select_model_path):
