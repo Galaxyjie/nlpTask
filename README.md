@@ -2,6 +2,8 @@
 
 ## 任务一、Skip_Gram
 
+把cbow.py修改为Skip_Gram模型
+
 ## 任务二、RNN、DRNN
 
 ### 单层RNN
