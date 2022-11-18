@@ -222,7 +222,7 @@ def train_lstmlm():
             )
         if total_loss / count_loss < best_loss:
             best_loss = total_loss / count_loss
-            print("Saving best model")
+            print("------Saving best model------")
             torch.save(
                 model, f"models/{num_layer}_layers_lstmlm_model_(hidden=5)_best.ckpt",
             )
@@ -271,9 +271,9 @@ if __name__ == "__main__":
     n_hidden = 5  # number of hidden units in one cell
     batch_size = 512  # batch size
     learn_rate = 0.001
-    all_epoch = 100  # the all epoch for training
+    all_epoch = 150  # the all epoch for training
     emb_size = 128  # embeding size
-    save_checkpoint_epoch = 20  # save a checkpoint per save_checkpoint_epoch epochs
+    save_checkpoint_epoch = 50  # save a checkpoint per save_checkpoint_epoch epochs
     train_path = "data/train.txt"  # the path of train dataset
 
     word2number_dict, number2word_dict = make_dict(
